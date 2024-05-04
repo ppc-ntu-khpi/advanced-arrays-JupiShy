@@ -1,15 +1,23 @@
-import java.util.Arrays;
+import java.util.Scanner;
 
+/**
+ * Головний клас
+ */
 public class Main {
 
     public static void main(String[] args) {
-        int [][] matrix = new int[3][3];
-        int x=0;
+    
+        Scanner scanner = new Scanner(System.in);
 
-        for(int[] row:matrix)
-            Arrays.fill(row,x);
+        System.out.print("Введіть кількість рядків (N): ");
+        int n = scanner.nextInt();
+        System.out.print("Введіть кількість стовпців (M): ");
+        int m = scanner.nextInt();
+        scanner.close();
 
-        for(int[] row:matrix)
-            System.out.println(Arrays.toString(row));
+        int sumResult = CalcMatrix.calcMatrixSum(CalcMatrix.fillMatrix(n, m));
+        System.out.println("Сума елементів матриці: " + sumResult);
+
+        CalcTest.testCalcMatrixSum();
     }
 }
